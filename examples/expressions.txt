@@ -1,0 +1,10 @@
+A(h||1),B(i|phosphorylated|1),A,B(j|u|-)
+
+PIP(three|u|,four|p|,five|p|), PI3K(s||,SH2||1), Gab1(Y447||1,PH||-)
+PIP(three|u|2,four|p|,five|p|), PI3K(s||2,SH2||1), Gab1(Y447||1,PH||-)
+
+EGF(r||), ErbB1(l||,CR||,Y1016|p|), EGF(r||1), ErbB1(l||1,CR||3,Y1016|p|), EGF(r||2), ErbB1(l||2,CR||3,Y1016|u|)
+
+A(x|1|,y|p|-), A(x|1|,y|p|?), A(x||,y|p|), A(y|p|)
+
+Rictor(sin||1,t||2),SIN1(akt||,r||1,m||3),mTOR(r||2,sin||3,l||4),mLST8(m||4)

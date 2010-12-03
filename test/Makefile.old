@@ -1,0 +1,32 @@
+CXX = g++
+OPTS = -g -O0 -Wall -DBOOST_TEST_DYN_LINK -std=gnu++0x
+INCLUDES = -I../../
+LIBS = -lboost_unit_test_framework -lboost_regex
+CXXFLAGS = $(OPTS) $(INCLUDES)
+
+TESTS = agent expression lexer complex pattern rule gillespie map lift_map system
+
+all: $(TESTS)
+
+%.o: %.cpp
+	$(CXX) -c $(CXXFLAGS) $< -o $@
+
+%: %.cpp
+
+%: %.o
+	$(CXX) $(LIBS) $< -o $@
+
+test: all
+	./agent
+	./expression
+	./lexer
+	./complex
+	./pattern
+	./rule
+	./gillespie
+	./map
+	./lift_map
+	./system
+
+clean:
+	rm -f *.o $(TESTS)

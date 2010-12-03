@@ -1,0 +1,8 @@
+init 10000 G(s~gdp)
+init 11 S(s~y)
+init 89 S(s~n)
+S(s~y),G(s~gdp) -> S(s~y!1),G(s~gdp!1) [6.3E-4]
+S(s~n),G(s~gtp) -> S(s~n!1),G(s~gtp!1) [6.3E-4]
+G(s~gdp!1),S(s~y!1) -> G(s~gtp!1),S(s~y!1) [0.4]
+G(s~gtp!1),S(s~n!1) -> G(s~gdp!1),S(s~n!1) [0.4]
+S(s!-) -> S(s) [0.23]

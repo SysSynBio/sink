@@ -1,0 +1,1 @@
+PIP(three|u|,four|p|,five|p|), PI3K(s||,SH2||1), Gab1(Y447||1,PH||-) -> PIP(three|u|2,four|p|,five|p|), PI3K(s||2,SH2||1), Gab1(Y447||1,PH||-) [1]

@@ -1,0 +1,38 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.64])
+AC_INIT([sink], [0.99], [rata@cbuc.cl])
+AM_INIT_AUTOMAKE([1.9 foreign])
+AC_PREFIX_DEFAULT([/usr])
+LT_INIT
+AM_MAINTAINER_MODE
+
+# Checks for programs.
+AC_PROG_CXX
+AC_LANG_CPLUSPLUS
+
+# Checks for libraries.
+AC_CHECK_LIB([boost_unit_test_framework], [main], [HAVE_LIBBOOST_UNIT_TEST_FRAMEWORK=1])
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_INLINE
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile
+                 kappa/Makefile])
+
+if test -n "$HAVE_LIBBOOST_UNIT_TEST_FRAMEWORK"; then
+  AC_CONFIG_FILES([test/Makefile])
+fi
+
+if test -z "$HAVE_LIBBOOST_IOSTREAMS" -o -z "$HAVE_LIBOMNIORB4"; then
+  AC_MSG_WARN("You won't be able to compile the CORBA client")
+fi
+
+AC_OUTPUT

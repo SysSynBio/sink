@@ -1,0 +1,15 @@
+This file isn't what you expect from it.
+It documents the implementation design decisions we've made.
+
+First, we've choosen that Agent and Site classes (both implemented in agent.hpp) will be simple structures.
+They do not perform any simulation computation.
+Agent additionally offer some access to its interface (in the Kappa sense of the word) through add_site,
+remove_site and find_site.
+
+Every container that stores an instance of an object must be a std::list or std::slist (e.g. Expression)
+If the container stores a pointer or reference to the object, it could be std::vector, std::list, etc. (e.g. Complex)
+This is so because lists and slists are the only containers that do not reallocate its elements.
+We need this because we use memory addresses as agents ID.
+
+For every class there should be to_string and from_string specializations and
+a validation function (e.g valid_expression, valid_agent)

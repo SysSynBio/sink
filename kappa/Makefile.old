@@ -1,0 +1,19 @@
+CXX = g++
+FLAGS =
+OPTS = -g -O2 -Wall -std=gnu++0x
+INCLUDES = -I../
+LIBS = #-lboost_regex #-lprofiler
+CXXFLAGS = $(OPTS) $(FLAGS) $(INCLUDES)
+
+all: kappa
+
+%.o: %.cpp
+	$(CXX) -c $(CXXFLAGS) $< -o $@
+
+%: %.cpp
+
+%: %.o
+	$(CXX) $(LIBS) $< -o $@
+
+clean:
+	rm -f *.o kappa
